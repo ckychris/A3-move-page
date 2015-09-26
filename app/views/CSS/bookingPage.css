@@ -1,0 +1,109 @@
+/* moive table*/
+
+table.Movie_information {
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+table.Movie_information th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table.Movie_information td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
+/* price table*/
+
+table.Tickets_and_display_price {
+    width: 100%;
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #666666;
+    border-collapse: collapse;
+}
+table.Tickets_and_display_price th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #dedede;
+}
+table.Tickets_and_display_price td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #666666;
+    background-color: #ffffff;
+}
+table.Tickets_and_display_price span.quanity {
+    padding: 5px;
+    background-color: #FFB3B3;
+    display: inline-block;
+    position: relative;
+    bottom: 6px;
+}
+
+table.Tickets_and_display_price span.price{
+    padding: 5px;
+    background-color: #FFFF99;
+    display: inline-block;
+    position: relative;
+    bottom: 6px;
+}
+
+table.Tickets_and_display_price span.x{
+    background-color: #eee;
+    display: inline-block;
+    position: relative;
+    bottom: 6px;
+}
+/* table style*/
+
+fieldset {
+    margin: 10px;
+    color: #333;
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    border: none;
+    padding-bottom: 50px;
+    background-color: #eee;
+}
+legend {
+    color: #06c;
+    font-family: 'Poiret One', cursive;
+    font-weight: 800;
+    background-color: #fff;
+    border: #b6b6b6 solid 1px;
+    padding: 3px 6px;
+    border-style: dotted;
+    font-size: 150%;
+}
+/* form style*/
+
+#book {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+}
+@media only screen and (min-width: 400px) {
+    #book {
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 650px) {} @media only screen and (min-width: 1000px) {}

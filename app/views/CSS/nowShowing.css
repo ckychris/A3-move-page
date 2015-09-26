@@ -1,0 +1,92 @@
+#content-warpper {
+    min-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+/* warpper box */
+
+.moive {
+    width: 100%;
+    max-width: 720px;
+    background-color: #333;
+    color: #eee;
+    display: flex;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+/* left inside warpper box */
+
+.leftPane {
+    display: flex;
+    margin-right: 20px;
+    width: 100px;
+    min-width: 100px;
+}
+.previewImg {
+    height: auto;
+    width: 100px;
+}
+/* right inside warpper box */
+
+.moiveTitle {
+    font-size: 200%;
+    font-family: 'Poiret One', cursive;
+}
+.movieDes {
+    display: none;
+}
+.movieDes b {
+    background-color: #333366;
+}
+.button-warpper {
+    margin: 15px;
+    margin-left: 0px;
+}
+.button {
+    padding: 5px;
+    background-color: #FF3333;
+    color: #eee;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.1s;
+}
+.button:hover {
+    background-color: #eee;
+    color: #FF3333;
+}
+@media only screen and (min-width: 400px) {
+    /* footer center*/
+    
+    #content-warpper {
+        justify-content: center;
+    }
+    .moive {
+        padding: 30px;
+        margin-bottom: 45px;
+    }
+    .leftPane {
+        margin-right: 30px;
+        width: 130px;
+        min-width: 130px;
+    }
+    .previewImg {
+        width: 130px;
+    }
+}
+@media only screen and (min-width: 650px) {} @media only screen and (min-width: 1000px) {
+    .moive {
+        padding: 50px;
+        margin-bottom: 75px;
+        margin-right: 75px;
+    }
+    .leftPane {
+        margin-right: 50px;
+        width: 250px;
+        min-width: 250px;
+    }
+    .previewImg {
+        width: 250px;
+    }
+}

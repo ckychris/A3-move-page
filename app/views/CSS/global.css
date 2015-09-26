@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+body {
+    top: 0px;
+    padding: 0px;
+    margin: 0px;
+    background-color: #4E5676;
+}
+/* full webpage warpper */
+
+#warpper {
+    display: flex;
+    flex-flow: row wrap;
+}
+/* header warpper */
+
+#header-warpper {
+    display: flex;
+    width: 100%;
+    min-width: 400px;
+    background: linear-gradient(#373F5E, #4E5676);
+}
+/* header */
+
+header {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+}
+.title {
+    font-size: 200%;
+    font-weight: bold;
+    margin: 40px;
+    margin-left: 10px;
+    font-family: 'Poiret One', cursive;
+}
+#icon {
+    width: 7em;
+    height: 7em;
+    margin: 1em;
+}
+/* nav */
+
+#nav-warpper {
+    display: flex;
+    width: 100%;
+    min-width: 400px;
+    background-color: #9398AA;
+    box-shadow: 0px 10px 30px #6C738D;
+}
+.mainNav {
+    display: flex;
+    width: 100%;
+    min-width: 400px;
+    margin: 20px auto;
+    flex-flow: row wrap;
+}
+.mainNav a {
+    font-size: 150%;
+    font-weight: bold;
+    font-family: Arial;
+    background: #373F5E;
+    color: #eee;
+    margin: 0px 10px 10px 10px;
+    justify-content: center;
+    text-align: center;
+    clear: both;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 7px 7px 7px 7px;
+    transition: 0.1s;
+}
+.mainNav a:hover {
+    color: #1E90FF;
+    background-color: #eee;
+}
+/* footer */
+
+footer {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+}
+footer table {
+    background-color: #4E5676;
+    min-width: 400px;
+    max-width: 720px;
+    width: 100%;
+    padding: 5em 0em 5em 0em;
+}
+footer table tr td {
+    text-align: center;
+    width: 20%;
+}
+footer table .head td {
+    background-color: #6C738D;
+    font-weight: bold;
+    color: rgb(20, 20, 20);
+    font-family: 'Poiret One', cursive;
+}
+footer table .bottom td {
+    font-size: 70%;
+}
+footer table .bottom td a {
+    color: #eee;
+    transition: 0.3s;
+    text-decoration: none;
+}
+footer table .bottom td a:hover {
+    color: gray;
+}
+footer table .bottom td a:active {
+    color: red;
+}
+#copyright {
+    background-color: #222B4E;
+    width: 100%;
+    min-width: 350px;
+    text-align: center;
+    color: lightgray;
+    padding: 1em;
+    font-size: 100%;
+}
+@media only screen and (min-width: 400px) {
+    /* footer center*/
+    
+    footer {
+        justify-content: center;
+    }
+    .title {
+        font-size: 300%;
+        margin: 40px;
+    }
+}
+@media only screen and (min-width: 650px) {
+    .title {
+        font-size: 400%;
+    }
+}
+@media only screen and (min-width: 1000px) {}
