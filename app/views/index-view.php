@@ -8,8 +8,8 @@
             <?php require_once('CSS/global.css'); ?>
             <?php require_once('CSS/index.css'); ?>
       </style>
-      <script src="JS/jquery-2.1.4.min.js"></script>
-      <script src="JS/index.js"></script>
+      <script src="app/views/JS/jquery-2.1.4.min.js"></script>
+      <script src="app/views/JS/index.js"></script>
    </head>
    <body>
       <div id="warpper">
@@ -21,11 +21,11 @@
             <div id="slider">
                <!-- All image copyright to www.imdb.com!-->
                <div>
-                  <a href="nowShowing.html"><img src="app/views/moive1/cover.jpg" alt="Fantastic Four (2015)"></a>
-                  <a href="nowShowing.html"><img src="app/views/moive2/cover.jpg" alt="Shaun the Sheep Movie (2015)"></a>
-                  <a href="nowShowing.html"><img src="app/views/moive3/cover.jpg" alt="The Gift (VI) (2015)"></a>
-                  <a href="nowShowing.html"><img src="app/views/moive4/cover.jpg" alt="Mission: Impossible - Rogue Nation (2015)"></a>
-                  <a href="nowShowing.html"><img src="app/views/moive1/cover.jpg" alt="Fantastic Four (2015)"></a>
+                  <a href="nowShowing.php"><img src="https://titan.csit.rmit.edu.au/~e54061/wp/movie-service/AF.jpg" alt="Girlhood"></a>
+                  <a href="nowShowing.php"><img src="https://titan.csit.rmit.edu.au/~e54061/wp/movie-service/CH.jpg" alt="Inside Out"></a>
+                  <a href="nowShowing.php"><img src="https://titan.csit.rmit.edu.au/~e54061/wp/movie-service/RC.jpg" alt="Train Wreck"></a>
+                  <a href="nowShowing.php"><img src="https://titan.csit.rmit.edu.au/~e54061/wp/movie-service/AC.jpg" alt="Mission Impossible: Rogue Nation"></a>
+                  <a href="nowShowing.php"><img src="https://titan.csit.rmit.edu.au/~e54061/wp/movie-service/AF.jpg" alt="Girlhood"></a>
                </div>
             </div>
             <div id="banner2" class="banner"></div>

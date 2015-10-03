@@ -4,130 +4,90 @@
       <title>Silverado - Now showing page</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1">
       <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+      <link href='CSS/nowShowing.css' rel='stylesheet' type='text/css'>
       <style>
             <?php require_once('CSS/global.css'); ?>
             <?php require_once('CSS/nowShowing.css'); ?>
       </style>
+      <script src="app/views/JS/jquery-2.1.4.min.js"></script>
+      <script src="app/views/JS/nowShowing.js"></script>
    </head>
    <body>
       <div id="warpper">
          <!-- header + warpper !-->
          <?php require_once('header+nav.php'); ?>
          <!-- content !-->
+         <div id="sortForm">
+            <form id="sort" action="https://<?php echo $_SERVER['SERVER_NAME']; ?>/~e54061/wp/moviesJSON.php" method="post">
+               <legend class="sortTitle">Select Moives</legend>
+               <table id="sortTable">
+                  <tr>
+                     <th>Movie Name</th>
+                     <td>
+                        <select id="movie" name="movie" value="">
+                           <option value="AC">Mission Impossible</option>
+                           <option value="CH">Inside Out</option>
+                           <option value="AF">Girlhood</option>
+                           <option value="RC">Train Wreck</option>
+                        </select>
+                     </td>
+                        
+                     <td>
+                        <input type="button" value="Find" onclick="subBtn(this.id,this.value)">
+                     </td>
+                  </tr>
+                  <tr>
+                     <th>Week Day</th>
+                     <td>
+                        <select id="day" name="day" value="">
+                           <option value="Monday">Monday</option>
+                           <option value="Tuesday">Tuesday</option>
+                           <option value="Wednesday">Wednesday</option>
+                           <option value="Thursday">Thursday</option>
+                           <option value="Friday">Friday</option>
+                           <option value="Saturday">Saturday</option>
+                           <option value="Sunday">Sunday</option>
+                        </select>
+                     </td>
+                        
+                     <td>
+                        <input type="button" value="Find" onclick="subBtn(this.id,this.value)">
+                     </td>
+                  </tr>
+               </table>
+            </form>
+         </div>
          <div id="content-warpper">
-            <!-- moive 1 !-->
             <div class="moive">
-               <div class="leftPane">
-                  <a href="bookingPage.html">
-                  <img class="previewImg" src="moive1/cover.jpg" alt="Fantastic Four (2015)">
-                  </a>
+               <div class="moiveTitle">
+                  I FK YOU FOREVER
                </div>
-               <div class=“rightPane”>
-                  <div class="moiveTitle">Fantastic Four</div>
-                  <div>PG-13 | Action, Adventure, Sci-Fi</div>
-                  <div id="movieDes1" class="movieDes">
-                     <div><b>Description:</b> Four young outsiders teleport to an alternate and
-                        dangerous universe which alters their physical
-                        form in shocking ways. The four must learn to 
-                        harness their new abilities and work together
-                        to save Earth from a former friend turned 
-                        enemy.
-                     </div>
-                     <div><b>Director:</b> Josh Trank</div>
-                     <div><b>Writers:</b> Writers: Simon Kinberg (screenplay), 
-                        Jeremy Slater (screenplay), 3 more credits
-                     </div>
-                     <div><b>Stars:</b> Miles Teller, Kate Mara, Michael B. Jordan</div>
+               <div class="mainPane">
+                  <div class="leftPane">
+                     <img class="previewImg"alt="cover" src="https://titan.csit.rmit.edu.au/~e54061/wp/movie-service/AF.jpg"></img>
                   </div>
-                  <div class="button-warpper"><span class="button" onclick="toggle('movieDes1')">show/hide description</span></div>
-                  <div class="button-warpper">
-                     <a class="button" href="schedule.html">schedule</a>
-                  </div>
-                  <div class="button-warpper">
-                     <a class="button" href="bookingPage.html">Book tickets</a>
+                  <div class="rightPane">
+                     <div class="summary">This is not the Louvre</div>
+                     <div class="rating"><img alt="rating" src="https://titan.csit.rmit.edu.au/~e54061/wp/movie-service/rMA.jpg"></img></div>
+                     <div class="des0">The hugely anticipated new film from writer/director Celine Sciamma (Tomboy, Water Lilies), GIRLHOOD is a sensational story of female empowerment set in the tough neighbourhoods of Paris.</div>
                   </div>
                </div>
-            </div>
-            <!-- moive 2 !-->
-            <div class="moive">
-               <div class="leftPane">
-                  <a href="bookingPage.html">
-                  <img class="previewImg" src="moive2/cover.jpg" alt="Shaun the Sheep Movie (2015)">
-                  </a>
+               <div class="toggle" onclick="toggle(this)">
+                  read more
                </div>
-               <div class=“rightPane”>
-                  <div class="moiveTitle">Shaun the Sheep Movie</div>
-                  <div>PG | Animation, Adventure, Comedy</div>
-                  <div id="movieDes2" class="movieDes">
-                     <div><b>Description:</b> When Shaun decides to take the day off and have some fun, he gets a little more action than he 
-                        bargained for. A mix up with the Farmer, a caravan and a very steep hill lead them all to the Big City
-                        and it's up to Shaun and the flock to return everyone safely to the green grass of home.
-                     </div>
-                     <div><b>Director:</b> Mark Burton, Richard Starzak</div>
-                     <div><b>Writers:</b> Mark Burton (screenplay), Richard Starzak (screenplay)</div>
-                     <div><b>Stars:</b> Justin Fletcher, John Sparkes, Omid Djalili</div>
+               <div class="hiddenPane">
+                  <div class="subTitle">Summary</div>
+                  <div class="des1">Mariame (an incendiary, star-making performance from Karidja Touré) is a shy 16-year-old who lives with her mostly absent mother, a domineering older brother, and two younger sisters of whom she largely takes responsibility for caring. Left behind at high school where she’s told her grades are too poor to continue, Mariame is soon lured out of her shell by three vivacious neighborhood teens. Enthralled by their bravado and brash energy, Mariame quickly adopts their flashier look and adapts to their bolder and often reckless behavior, making both foolish and brave choices as she struggles towards independence.</div>
+                  <div class="des2">Depicting a side of Paris unseen from the top of the Eiffel Tower, GIRLHOOD finds irresistible energy in these young characters for whom attitude is everything. Featuring sumptuous cinematography and a jubilant soundtrack, the film builds momentum with every scene, and exudes life from every frame.</div>
+                  <div class="trailer">
+                     <div class="subTitle">Trailer</div>
+                     <video class="video" controls>
+                        <source src="https://titan.csit.rmit.edu.au/~e54061/wp/movie-service/AF.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                     </video>
                   </div>
-                  <div class="button-warpper"><span class="button" onclick="toggle('movieDes2')">show/hide description</span></div>
-                  <div class="button-warpper">
-                     <a class="button" href="schedule.html">schedule</a>
-                  </div>
-                  <div class="button-warpper">
-                     <a class="button" href="bookingPage.html">Book tickets</a>
-                  </div>
-               </div>
-            </div>
-            <!-- moive 3 !-->
-            <div class="moive">
-               <div class="leftPane">
-                  <a href="bookingPage.html">
-                  <img class="previewImg" src="moive3/cover.jpg" alt="The Gift (VI) (2015)">
-                  </a>
-               </div>
-               <div class=“rightPane”>
-                  <div class="moiveTitle">The Gift (VI)</div>
-                  <div>R | Mystery, Thriller</div>
-                  <div id="movieDes3" class="movieDes">
-                     <div><b>Description:</b> A young married couple's lives are thrown into a harrowing tailspin when an acquaintance from the 
-                        husband's past brings mysterious gifts and a horrifying secret to light after more than 20 years.
-                     </div>
-                     <div><b>Director:</b> Joel Edgerton</div>
-                     <div><b>Writers:</b> Joel Edgerton</div>
-                     <div><b>Stars:</b> Jason Bateman, Rebecca Hall, Joel Edgerton</div>
-                  </div>
-                  <div class="button-warpper"><span class="button" onclick="toggle('movieDes3')">show/hide description</span></div>
-                  <div class="button-warpper">
-                     <a class="button" href="schedule.html">schedule</a>
-                  </div>
-                  <div class="button-warpper">
-                     <a class="button" href="bookingPage.html">Book tickets</a>
-                  </div>
-               </div>
-            </div>
-            <!-- moive 4 !-->
-            <div class="moive">
-               <div class="leftPane">
-                  <a href="bookingPage.html">
-                  <img class="previewImg" src="moive4/cover.jpg" alt="Remember Me (2010)">
-                  </a>
-               </div>
-               <div class=“rightPane”>
-                  <div class="moiveTitle">Remember Me</div>
-                  <div>PG-13 | Drama, Romance</div>
-                  <div id="movieDes4" class="movieDes">
-                     <div><b>Description:</b> A romantic drama centered on two new lovers: Tyler, whose parents have split in the wake of his
-                        brother's suicide, and Ally, who lives each day to the fullest since witnessing her mother's murder.
-                     </div>
-                     <div><b>Director:</b> Allen Coulter</div>
-                     <div><b>Writers:</b>  Will Fetters (as William Fetters)</div>
-                     <div><b>Stars:</b> Robert Pattinson, Emilie de Ravin, Caitlyn Rund</div>
-                  </div>
-                  <div class="button-warpper"><span class="button" onclick="toggle('movieDes4')">show/hide description</span></div>
-                  <div class="button-warpper">
-                     <a class="button" href="schedule.html">schedule</a>
-                  </div>
-                  <div class="button-warpper">
-                     <a class="button" href="bookingPage.html">Book tickets</a>
-                  </div>
+                  <div class="subTitle">Reservation</div>
+                  <div class="regbtn"></div>
                </div>
             </div>
          </div>
@@ -135,6 +95,4 @@
          <?php require_once('footer.php'); ?>
       </div>
    </body>
-   <script src="JS/jquery-2.1.4.min.js"></script>
-   <script src="JS/nowShowing.js"></script>
 </html>

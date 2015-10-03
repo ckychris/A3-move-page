@@ -29,13 +29,13 @@ header {
 .title {
     font-size: 200%;
     font-weight: bold;
-    margin: 40px;
-    margin-left: 10px;
+    margin: 20px;
+    margin-left: 20px;
     font-family: 'Poiret One', cursive;
 }
 #icon {
-    width: 7em;
-    height: 7em;
+    width: 4em;
+    height: 4em;
     margin: 1em;
 }
 /* nav */
@@ -55,18 +55,18 @@ header {
     flex-flow: row wrap;
 }
 .mainNav a {
-    font-size: 150%;
+    font-size: 100%;
     font-weight: bold;
     font-family: Arial;
     background: #373F5E;
     color: #eee;
-    margin: 0px 10px 10px 10px;
+    margin: 0px 6px 6px 6px;
     justify-content: center;
     text-align: center;
     clear: both;
     text-decoration: none;
-    border-radius: 10px;
-    padding: 7px 7px 7px 7px;
+    border-radius: 7px;
+    padding: 4.6px 4.6px 4.6px 4.6px;
     transition: 0.1s;
 }
 .mainNav a:hover {
@@ -122,18 +122,37 @@ footer table .bottom td a:active {
 }
 @media only screen and (min-width: 400px) {
     /* footer center*/
-    
     footer {
         justify-content: center;
     }
+    .mainNav a {
+        font-size: 120%;
+        margin: 0px 7px 7px 7px;
+        border-radius: 7px;
+        padding: 5.5px 5.5px 5.5px 5.5px;
+    }
     .title {
         font-size: 300%;
-        margin: 40px;
+        margin: 30px;
+        margin-left: 30px;
     }
 }
 @media only screen and (min-width: 650px) {
     .title {
         font-size: 400%;
+        margin: 40px;
+        margin-left: 40px;
+    }
+    .mainNav a {
+        font-size: 150%;
+        margin: 0px 10px 10px 10px;
+        border-radius: 10px;
+        padding: 7px 7px 7px 7px;
+    }
+    #icon {
+        width: 7em;
+        height: 7em;
+        margin: 1em;
     }
 }
 @media only screen and (min-width: 1000px) {}

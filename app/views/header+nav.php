@@ -5,10 +5,10 @@
             </div>
             <div id="nav-warpper">
                <nav class="mainNav">
-                  <a href="index.html">Home</a>
-                  <a href="nowShowing.html">Now showing</a>
-                  <a href="schedule.html">Price Table</a>
-                  <a href="contact.html">Contact us</a>
+                  <a href="index.php">Home</a>
+                  <a href="nowShowing.php">Now showing</a>
+                  <a href="schedule.php">Price Table</a>
+                  <a href="contact.php">Contact us</a>
                </nav>
             </div>
          </header>

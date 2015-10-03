@@ -8,6 +8,7 @@
             <?php require_once('CSS/global.css'); ?>
             <?php require_once('CSS/contact.css'); ?>
       </style>
+      <script src="app/views/JS/jquery-2.1.4.min.js"></script>
    </head>
    <body>
       <div id="warpper">
@@ -34,5 +35,4 @@
          <?php require_once('footer.php'); ?>
       </div>
    </body>
-   <script src="JS/jquery-2.1.4.min.js"></script>
 </html>
