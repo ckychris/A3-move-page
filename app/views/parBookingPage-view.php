@@ -6,10 +6,10 @@
       <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
       <style>
             <?php require_once('CSS/global.css'); ?>
-            <?php require_once('CSS/bookingPage.css'); ?>
+            <?php require_once('CSS/parBookingPage.css'); ?>
       </style>
       <script src="app/views/JS/jquery-2.1.4.min.js"></script>
-      <script src="app/views/JS/bookingPage.js"></script>
+      <script src="app/views/JS/parBookingPage.js"></script>
    </head>
    <body>
       <div id="warpper">
@@ -20,18 +20,27 @@
             <fieldset>
                <legend class="book">Booking form</legend>
                <br/>
-               <div id=warningMessage>Please select "Movie Name" <em><b> first</b></em></div>
+               <div id=warningMessage>Moive, day and time pre-selected. If you want to change the details, click <a href="bookingPage.php">here</a></div>
                <!-- ticket type selection !-->
                <table class="Movie_information">
                   <tr>
                      <th>Movie Name</th>
                      <td>
-                        <select id="movieI" name="movie" onchange="showDay()" required>
-                           <option value="">Select a movie ...</option>
-                           <option value="AC">Fantastic Four</option>
-                           <option value="CH">Shaun the Sheep Movie</option>
-                           <option value="AF">The Gift</option>
-                           <option value="RC">Remember Me</option>
+                        <select id="movieI" name="movie"  required readonly>
+                            <?php
+                                if($_POST["moive"]=="AC"){
+                                    echo '<option value="AC">Mission Impossible: Rogue Nation</option>';
+                                }
+                                if($_POST["moive"]=="CH"){
+                                    echo '<option value="CH">Inside Out</option>';
+                                }
+                                if($_POST["moive"]=="AF"){
+                                    echo '<option value="AF">Girlhood</option>';
+                                }
+                                if($_POST["moive"]=="RC"){
+                                    echo '<option value="RC">Train Wreck</option>';
+                                }
+                            ?>
                         </select>
                      </td>
                   </tr>
@@ -39,8 +48,10 @@
                      <!-- show only when previous selected vaule is not empty !-->
                      <th>Session Day</th>
                      <td>
-                        <select id="dayI" name="day" onclick="showTime()" required>
-                           <!-- generate accordingly !-->
+                        <select id="dayI" name="day" required readonly>
+                           <?php
+                                echo '<option value="'.$_POST["day"].'">'. $_POST["day"].'</option>';
+                            ?>
                         </select>
                      </td>
                   </tr>
@@ -48,8 +59,10 @@
                      <!-- show only when previous selected vaule is not empty !-->
                      <th>Session Time</th>
                      <td>
-                        <select id="timeI" name="time" onclick="unblockRange()" required>
-                           <!-- generate accordingly !-->
+                        <select id="timeI" name="time" required readonly>
+                            <?php
+                                echo '<option value="'.$_POST["time"].'">'. $_POST["time"].'</option>';
+                            ?>
                         </select>
                      </td>
                   </tr>
