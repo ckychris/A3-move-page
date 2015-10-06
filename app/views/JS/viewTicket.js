@@ -13,63 +13,98 @@ function subBtn(){
 }
 // load content to the page
 function onContentLoad(data){
-
+    if (data==0) {
+        $( "#content-warpper" ).empty();
+        $( "#content-warpper" ).append('<div class="error">Error, incorrect email, token.</div>');
+        return 0;
+    }
     var obj = JSON.parse(data);
-    $( "#content-warpper" ).append('<div>'+data+'</div>');
-    
+    // ticket page invoice
+    $( ".customerDetails" ).append(obj["name"]+" "+obj["email"]+" "+obj["phone"]);
+    for(var i in obj["cart"]["screenings"]){
+        var screening = obj["cart"]["screenings"][i];
+        var movieName = returnMovieName(screening["movie"]);
+        $( ".confirm" ).append('<div class="moiveDetails">'+movieName+" "+screening["day"]+","+screening["time"]+'</div>');
+        $( ".confirm" ).append('<div class="subtotalPane"></div>');
+        $( ".subtotalPane:last" ).append('<div class="leftPane"></div>');
+        $( ".subtotalPane:last" ).append('<div class="rightPane"></div>');
+        for(var k in screening["seats"]){
+            var seatName = returnSeatName(k);
+            $( ".leftPane:last" ).append(screening["seats"][k]["quantity"]+" x "+seatName+"</br>");
+            $( ".rightPane:last" ).append("$"+screening["seats"][k]["price"]+"</br>");
+        }
+    }
+    if (obj["voucher"]) {
+        $( ".confirm" ).append('<div class="voucher">Voucher Discount (20%)</div>');
+    }
+     $( ".confirm" ).append('<div class="grandTotal">'+'Total: '+obj["grand-total"]+'</div>');
+    // append tickets
+    for(var i in obj["cart"]["screenings"]){
+        var screening = obj["cart"]["screenings"][i];
+        var movieName = returnMovieName(screening["movie"]);
+        var day = screening["day"];
+        var time = screening["time"];
+        for(var k in screening["seats"]){
+            var seatName = returnSeatName(k);
+            for(var u=0;u<screening["seats"][k]["quantity"];u++){
+                $( "#content-warpper" ).append('<div class="ticket"></div>');
+                $( ".ticket:last" ).append('<div class="ticketHead"><img src="app/views/IMG/ticket.png" alt="cover"></div>');
+                $( ".ticket:last" ).append('<div class="ticketMiddle"></div>');
+                    $( ".ticketMiddle:last" ).append('<div class="moiveID">'+movieName+'</div>');
+                    $( ".ticketMiddle:last" ).append('<div class="dayAndTime">'+day+' '+time+'</div>');
+                    $( ".ticketMiddle:last" ).append('<div class="seatType">'+seatName+'</div>');
+                $( ".ticket:last" ).append('<div class="ticketTail"></div>');
+                 $( ".ticketTail:last" ).append('<div class="seatNo"><img src="app/views/IMG/cinema.jpg" alt="sideImg"></div>');
+            }
+        }
+    }
     
     
     // further layer
-    Object.getOwnPropertyNames(obj).forEach(function(val, idx, array) {
-        layer1(val, idx, array, obj);
-    });
 }
 
-function layer1(val, idx, array, obj){
-    // there is no way I can make .add work. Swithcing to hard coding .append(rage), this is so stupid, do not attempt to read the following.
-    //grand keys val
-    // div moive
-    
-    /*
-    $( "#content-warpper" ).append("<div></div>").find("div:last").addClass("moive");
-    // title
-    $( "#content-warpper" ).find("div:last").append("<div></div>").find("div:last").addClass("moiveTitle").text(obj[val]["title"]);
-    // mainPane
-    $( ".moive:last" ).append("<div></div>").find("div:last").addClass("mainPane");
-    // leftPane
-    $( ".mainPane:last" ).append("<div></div>").find("div:last").addClass("leftPane");
-    $( ".leftPane:last" ).append("<img></img>").find("img:last").addClass("previewImg").attr("alt","cover").attr("src",obj[val]["poster"]);
-    // rightPane
-    $( ".mainPane:last" ).append("<div></div>").find("div:last").addClass("rightPane");
-    $( ".rightPane:last" ).append("<div></div>").find("div:last").addClass("summary").text(obj[val]["summary"]);
-    $( ".rightPane:last" ).append("<div></div>").find("div:last").addClass("rating").append("<img></img>").find("img:last").attr("alt","rating").attr("src",obj[val]["rating"]);
-    $( ".rightPane:last" ).append("<div></div>").find("div:last").addClass("des0").text(obj[val]["description"][0]);
-    // toggle button
-    $( ".moive:last" ).append("<div></div>").find("div:last").addClass("toggle").attr("onclick","toggle(this)").text("Read more");
-    // hiddenPane (hidden)
-    $( ".moive:last" ).append("<div></div>").find("div:last").addClass("hiddenPane");
-    $( ".hiddenPane:last" ).hide();
-    // hiddenContent
-    $( ".hiddenPane:last" ).append("<div></div>").find("div:last").addClass("subTitle").text("Summary");
-    $( ".hiddenPane:last" ).append("<div></div>").find("div:last").addClass("des1").text(obj[val]["description"][1]);
-    $( ".hiddenPane:last" ).append("<div></div>").find("div:last").addClass("des2").text(obj[val]["description"][2]);
-    $( ".hiddenPane:last" ).append("<div></div>").find("div:last").addClass("trailer");
-    $( ".trailer:last" ).append("<div></div>").find("div:last").addClass("subTitle").text("Trailer");
-    $( ".trailer:last" ).append("<video></video>").find("video:last").addClass("video").prop("controls",true);
-    $( ".video:last" ).append("<source>").find("source:last").attr("src",obj[val]["trailer"]).attr("type","video/mp4");
-    
-    $( ".hiddenPane:last" ).append("<div></div>").find("div:last").addClass("subTitle").text("Reservation");
-    $( ".hiddenPane:last" ).append("<div></div>").find("div:last").addClass("regbtns");
-    
-    for(var i in Object.keys(obj[val]["screenings"])){
-        var key = Object.keys(obj[val]["screenings"])[i];
-        var value =  obj[val]["screenings"][Object.keys(obj[val]["screenings"])[i]];
-        var funStr = 'bookBtn('+ '"' +val+'"' +','+'"' +key+'"' +','+'"' +value+'"' +')';
-        $( ".regbtns:last" ).append("<div></div>").find("div:last").attr("onclick",funStr).addClass("regbtn").text(key + " : " + value);
+function returnMovieName(code) {
+    if (code=="AC") {
+        return "Mission Impossible: Rogue Nation";
     }
-    
-    */
-
+    if (code=="CH") {
+        return "Inside Out";
+    }
+    if (code=="AF") {
+        return "Girlhood";
+    }
+    if (code=="RC") {
+        return "Train Wreck";
+    }
 }
 
-subBtn();
+function returnSeatName(code){
+    if (code=="SA") {
+        return "Adult";
+    }
+    if (code=="SP") {
+        return "Concession";
+    }
+    if (code=="SC") {
+        return "Child";
+    }
+    if (code=="FA") {
+        return "First Class Adult";
+    }
+    if (code=="FC") {
+        return "First Class Child";
+    }
+    if (code=="B1") {
+        return "Beanbag - 1 Person";
+    }
+    if (code=="B2") {
+        return "Beanbag - 2 People";
+    }
+    if (code=="B3") {
+        return "Beanbag - 3 children";
+    }
+}
+
+$( document ).ready(function() {
+   subBtn();
+});

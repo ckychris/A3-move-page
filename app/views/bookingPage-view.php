@@ -28,10 +28,10 @@
                      <td>
                         <select id="movieI" name="movie" onchange="showDay()" required>
                            <option value="">Select a movie ...</option>
-                           <option value="AC">Fantastic Four</option>
-                           <option value="CH">Shaun the Sheep Movie</option>
-                           <option value="AF">The Gift</option>
-                           <option value="RC">Remember Me</option>
+                           <option value="AC">Mission Impossible: Rogue Nation</option>
+                           <option value="CH">Inside Out</option>
+                           <option value="AF">Girlhood</option>
+                           <option value="RC">Train Wreck</option>
                         </select>
                      </td>
                   </tr>

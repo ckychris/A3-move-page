@@ -13,35 +13,14 @@
    </head>
    <body>
       <div id="warpper">
-         <!-- header + warpper !-->
          <!-- content !-->
          <div id="content-warpper">
+            <div class="confirm">
+               <div class="customerDetails"></div>
+            </div>
             <!-- All image copyright to http://fenglish.ru!-->
-            <div class="ticket">
-                <div class="ticketHead"><img src="app/views/IMG/ticket.png" alt="cover"></div>
-                <div class="ticketMiddle">
-                    <div class="moiveID">Inside Out</div>
-                    <div class="dayAndTime">1pm Monday</div>
-                    <div class="seatType">Adult</div>
-                </div>
-                <div class="ticketTail">
-                    <div class="seatNo">E02</div>
-                </div>
-            </div>
-            <div class="ticket">
-                <div class="ticketHead"><img src="app/views/IMG/ticket.png" alt="cover"></div>
-                <div class="ticketMiddle">
-                    <div class="moiveID">Inside Out</div>
-                    <div class="dayAndTime">1pm Monday</div>
-                    <div class="seatType">Adult</div>
-                </div>
-                <div class="ticketTail">
-                    <div class="seatNo">E02</div>
-                </div>
-            </div>
             <!-- All image copyright to http://fenglish.ru!-->
          </div>
-         <!-- footer !-->
       </div>
    </body>
 </html>
