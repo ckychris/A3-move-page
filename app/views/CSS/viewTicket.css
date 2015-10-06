@@ -1,0 +1,94 @@
+#content-warpper {
+    display: flex;
+    width: 100%;
+    flex-flow: row wrap;
+}
+/* ticket */
+
+.ticket {
+    display: flex;
+    width: 100%;
+    min-width: 400px;
+    min-height: 84px;
+}
+.ticketHead {
+    background-color: #2F3290;
+    flex: 10;
+}
+.ticketHead img {
+    height: 80px;
+    width: auto;
+}
+.ticketMiddle {
+    display: flex;
+    color: black;
+    flex: 45;
+    flex-flow: row wrap;
+}
+.ticketTail {
+    display: flex;
+    background-color: #116416;
+    flex: 45;
+    align-items: center;
+}
+/* ticket middle text*/
+
+.moiveID {
+    display: flex;
+    width: 100%;
+    font-size: 16px;
+    background-color: #FFF8AA;
+    padding-left: 16px;
+    font-family: 'Poiret One', cursive;
+}
+.dayAndTime {
+    display: flex;
+    width: 100%;
+    font-size: 12px;
+    background: linear-gradient(#FFF8AA, #AAA039);
+    padding-left: 16px;
+    font-family: 'Poiret One', cursive;
+}
+.seatType {
+    display: flex;
+    width: 100%;
+    font-size: 3vw;
+    background-color: #AAA039;
+    padding-left: 32px;
+    font-family: 'Poiret One', cursive;
+}
+.seatNo {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    color: #eee;
+    font-size: 350%;
+    justify-content: center;
+    background-color: #2D8633;
+}
+/* ticket seat No*/
+
+@media only screen and (min-width: 400px) {
+    /* ticket */
+    
+    .ticketHead img {
+        height: 20vw;
+    }
+    /* ticket middle text*/
+    
+    .moiveID {
+        font-size: 4vw;
+        padding-left: 4vw;
+    }
+    .dayAndTime {
+        font-size: 3vw;
+        padding-left: 4vw;
+    }
+    .seatType {
+        font-size: 3vw;
+        padding-left: 8vw;
+    }
+    .seatNo {
+        font-size: 14vw;
+    }
+}
