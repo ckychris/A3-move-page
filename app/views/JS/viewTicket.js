@@ -2,6 +2,7 @@ function subBtn(){
     // sumbit one sort factor only
     var email = $(".email").text();
     var token = $(".token").text();
+    var targetLink = 'https://titan.csit.rmit.edu.au/~s3529426/wp/a3/databaseOut.php';
     $.post( targetLink,{"email":email, "token":token} ,function(data){onContentLoad(data);} );
 }
 // load content to the page
