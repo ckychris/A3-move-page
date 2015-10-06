@@ -13,7 +13,7 @@ log - 26/9
 
 Chris's objectives:
 - (3) code cutting
-- (16*) cart and AJAX pages
+- (24*) cart and AJAX pages
 - (12*) CSS design
 
 Dvaid's objectives:
