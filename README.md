@@ -7,7 +7,12 @@ log - 24/9
 log - 26/9
 - website cutting begin.
 - website cutting code partten desgin finished.
-
+log - 7/10
+- nowshowing.php AJAX finished.
+- Database design finished.
+- viewTicket.php finished.
+- bookingPage.php finished.
+- parBookingPage.php finished.
 
 
 
