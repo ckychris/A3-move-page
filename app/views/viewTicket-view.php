@@ -15,7 +15,18 @@
       <div id="warpper">
          <!-- content !-->
          <div id="content-warpper">
+         
+            
             <div class="confirm">
+               <div class="reminder">Login with the following details to view your tickets again!</div>
+               <?php
+                  if($_POST["email"]&&["token"]){
+                     $email = '<div class="loginInfo">Your login email: '.'<div class="email">'. $_POST["email"] .'</div></div>';
+                     $token = '<div class="loginInfo">Your login password: '.'<div class="token">'. $_POST["token"] .'</div></div>';
+                     echo $email;
+                     echo $token;
+                  }
+               ?>
                <div class="customerDetails"></div>
             </div>
             <!-- All image copyright to http://fenglish.ru!-->

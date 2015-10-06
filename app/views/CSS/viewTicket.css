@@ -4,6 +4,18 @@
     flex-flow: row wrap;
 }
 /* ticketHeader */
+.reminder{
+    display:flex;
+    width:100%;
+    min-width: 400px;
+    max-width: 720px;
+    color: #eee;
+    background-color: #FF9933;
+}
+.loginInfo{
+    display:flex;
+    width:100%;
+}
 .confirm{
     display:flex;
     flex-flow: row wrap;
@@ -145,12 +157,12 @@
     }
 }
 @media only screen and (min-width: 650px) {
-    .confirm{
+    .confirm, .reminder{
         font-size: 150%;
     }
 }
 @media only screen and (min-width: 1000px) {
-    .confirm{
+    .confirm, .reminder{
         font-size: 200%;
     }
 }

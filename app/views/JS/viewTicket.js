@@ -1,15 +1,8 @@
 function subBtn(){
     // sumbit one sort factor only
-    /*
-    $("#content-warpper").empty();
-    var target = $("#sort").attr("action");
-    var email = $("#"+id).attr("name");
-    var token = $("#"+id).val();
-    var targetLink = target + "?" + email + "=" + token;
-    */
-    
-    var targetLink = 'https://titan.csit.rmit.edu.au/~s3529426/wp/a3/databaseOut.php';
-    $.post( targetLink, function(data){onContentLoad(data);} );
+    var email = $(".email").text();
+    var token = $(".token").text();
+    $.post( targetLink,{"email":email, "token":token} ,function(data){onContentLoad(data);} );
 }
 // load content to the page
 function onContentLoad(data){
