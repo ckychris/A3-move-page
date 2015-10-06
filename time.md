@@ -11,4 +11,7 @@ Chris
 0.5 hours code cutting.
 1 hour JSON reading.
 4 hours reading requirements.
+8 hours JSON to HTML.
+4 hours remake booking Page.
+8 hours ticket page design.
 >>>>>>> origin/master
