@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
    <head>
@@ -17,7 +18,18 @@
          <?php require_once('header+nav.php'); ?>
          <!-- content !-->
          <div id="content-warpper">
-            
+            <form id="login" action='databaseIn.php' onsubmit="return validateForm();" method="post">
+                <fieldset>
+                    <legend class="book">Cart</legend>
+                        <div class="cusDes"><span>Name: </span><span class="valid"></span></div>
+                        <input type="text" name="name" value="<?php if(isset($_SESSION["name"])){echo $_SESSION["name"];}?>" required></input>
+                        <div class="cusDes"><span>Email: </span><span class="valid"></span></div>
+                        <input type="email" name="email" value="<?php if(isset($_SESSION["email"])){echo $_SESSION["email"];}?>" required></input>
+                        <div class="cusDes"><span>Phone: </span><span class="valid"></span></div>
+                        <input type="text" name="phone" value="<?php if(isset($_SESSION["phone"])){echo $_SESSION["phone"];}?>" required></input>
+                        <input type="submit" value="Submit"/>
+                </fieldset>
+            </form>
          </div>
          <!-- footer !-->
          <?php require_once('footer.php'); ?>

@@ -3,7 +3,7 @@
    <head>
       <title>Silverado - chedule page</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1">
-      <link href="http://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
       <style>
             <?php require_once('CSS/global.css'); ?>
             <?php require_once('CSS/schedule.css'); ?>

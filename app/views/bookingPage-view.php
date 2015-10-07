@@ -16,7 +16,7 @@
          <!-- header + warpper !-->
          <?php require_once('header+nav.php'); ?>
          <!-- content !-->
-         <form id="book" action='http://titan.csit.rmit.edu.au/~e54061/wp/testbooking.php' onsubmit="return validateForm()" method="post">
+         <form id="book" action='cart.php' onsubmit="return validateForm()" method="post">
             <fieldset>
                <legend class="book">Booking form</legend>
                <br/>
