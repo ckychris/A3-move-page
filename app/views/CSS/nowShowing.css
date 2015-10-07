@@ -93,6 +93,9 @@
 .rightPane{
     flex:1;
 }
+.hiddenPane{
+    transition:1s;
+}
 
 .summary{
     margin-bottom:10px;
