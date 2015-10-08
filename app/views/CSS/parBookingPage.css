@@ -74,7 +74,6 @@ table.Tickets_and_display_price span.x{
 /* table style*/
 
 fieldset {
-    margin: 10px;
     color: #333;
     width: 100%;
     max-width: 720px;
@@ -99,11 +98,14 @@ legend {
     display: flex;
     width: 100%;
     height: auto;
-    margin: 10px;
 }
 @media only screen and (min-width: 400px) {
     #book {
         justify-content: center;
     }
 }
-@media only screen and (min-width: 650px) {} @media only screen and (min-width: 1000px) {}
+@media only screen and (min-width: 650px) {
+    fieldset ,#book {
+		margin:10px;
+    }
+} @media only screen and (min-width: 1000px) {}

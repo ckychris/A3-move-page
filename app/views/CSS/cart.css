@@ -1,7 +1,65 @@
+/* table style*/
+#content-warpper {
+		display:flex;
+		width:100%;
+}
+fieldset {
+	color:#333;
+	width:100%;
+	min-width: 400px;
+	max-width:720px;
+	background-color: #eee;
+	display:flex;
+	border: none;
+} 
+legend {
+	color:#06c;
+	font-family: 'Poiret One', cursive;
+	font-weight:800; 
+	background-color:#fff;
+	border:#b6b6b6 solid 1px;
+	padding:3px 6px;
+	border-style:dotted;
+	font-size:150%;
+} 
+
+fieldset details select, fieldset details input, fieldset details summary, .price, .button{
+	padding:4px 0px 4px 0px;
+	margin: 5px 0px 10px 0px;
+}
+
+/* form style*/
+#buy {
+	display:flex;
+	width:100%;
+	height:auto;
+}
+
+#buy .cusDes, #buy input{
+	width:100%;
+}
+
 .valid{
     border-radius: 5px;
     padding:3px;
+    color: #eee;
 }
 .cusDes{
      margin:5px;
+}
+@media only screen and (min-width: 400px) {
+	#content-warpper ,#buy{
+		justify-content:center;
+	}
+    
+}
+
+@media only screen and (min-width: 650px) {
+	fieldset ,#buy {
+	margin:10px;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+	
 }

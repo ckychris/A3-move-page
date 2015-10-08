@@ -21,44 +21,59 @@ function init() {
 
 function changeHint(data, $mainElement, name) {
 
-    if (data != 0) {
-        $mainElement.text("valid");
-        $mainElement.css("background-color", "green");
-        $mainElement.css("color", "#eee");
+    if (data != false) {
+        $mainElement.text("Valid");
+        $mainElement.css("background-color", "green");;
+        if (name == "voucher"){
+            $.post("cartAjaxServer.php", {"updateGrandTotal":true}, function(data) {
+                $(".grandTotal").text(data);
+            });
+        }
     } else {
         if (name == "name") {
-            $mainElement.text("Enter letters only.");
+            $mainElement.text("Enter letters only");
             $mainElement.css("background-color", "red");
-            $mainElement.css("color", "#eee");
         }
         if (name == "email") {
-            $mainElement.text("Enter valid email address.");
+            $mainElement.text("Enter valid email address");
             $mainElement.css("background-color", "red");
-            $mainElement.css("color", "#eee");
         }
         if (name == "phone") {
             $mainElement.text("Enter valid phone number (start with 04 or +614 only)");
             $mainElement.css("background-color", "red");
-            $mainElement.css("color", "#eee");
+        }
+        if (name == "voucher") {
+            $mainElement.text("(Optional) Enter valid voucher code.");
+            $mainElement.css("background-color", "#996633");
+            $.post("cartAjaxServer.php", {"updateGrandTotal":true}, function(data) {
+                $(".grandTotal").text(data);
+            });
         }
     }
 }
 
-
+function emptyCart(){
+    $.post("cartAjaxServer.php", {"empty":true}, function(data) {
+        window.location.href = 'cart.php';
+    });
+}
 
 
 function validateForm() {
     // check
     // cart is empty
     // customer details are ready
-    var vaild = true;
+    var valid = true;
     $('.valid').each(function() {
-        if ($(this).text() != "valid") {
-            vaild = false;
-            alert("Please enter correct data!");
+        if (($(this).text() != "Valid") && ($(this).prev().text() != "Voucher: ")) {
+            valid = false;
         }
+        
     });
-    return vaild;
+    if (!valid) {
+        alert("Cart empty or invalid personal details.\nPlease edit your input before submittion.");
+    }
+    return valid;
 }
 
 $(document).ready(function() {

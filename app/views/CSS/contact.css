@@ -1,6 +1,5 @@
 /* table style*/
 fieldset {
-	margin:10px;
 	color:#333;
 	width:100%;
 	min-width: 400px;
@@ -33,8 +32,6 @@ fieldset textarea{
 	display:flex;
 	width:100%;
 	height:auto;
-	margin:10px;
-	
 }
 
 #contact select, #contact input{
@@ -48,7 +45,9 @@ fieldset textarea{
 }
 
 @media only screen and (min-width: 650px) {
-	
+	fieldset ,#contact {
+		margin:10px;
+    }
 }
 
 @media only screen and (min-width: 1000px) {

@@ -10,6 +10,7 @@
                   <a href="schedule.php">Price Table</a>
                   <a href="bookingPage.php">Reservation</a>
                   <a href="login.php">Login</a>
+                  <a href="cart.php">Cart</a>
                   <a href="contact.php">Contact us</a>
                </nav>
             </div>

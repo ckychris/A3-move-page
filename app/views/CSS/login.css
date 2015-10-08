@@ -4,7 +4,6 @@
 		width:100%;
 }
 fieldset {
-	margin:10px;
 	color:#333;
 	width:100%;
 	min-width: 400px;
@@ -37,8 +36,6 @@ fieldset textarea{
 	display:flex;
 	width:100%;
 	height:auto;
-	margin:10px;
-	
 }
 
 #login select, #login input{
@@ -52,7 +49,9 @@ fieldset textarea{
 }
 
 @media only screen and (min-width: 650px) {
-	
+	fieldset ,#login {
+		margin:10px;
+    }
 }
 
 @media only screen and (min-width: 1000px) {
