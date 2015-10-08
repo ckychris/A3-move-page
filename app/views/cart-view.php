@@ -36,16 +36,14 @@
       $screening["day"] = $_POST["day"];
       $screening["time"] = $_POST["time"];
       $screening["seats"] = null;
-      $seats = $screening["seats"];
       $seatType = array("SA","SP","SC","FA","FC","B1","B2","B3");
       $sub = 0;
       foreach($seatType as $i){
          if($_POST[$i]!=0){
-            $seats[$i] = null;
-            $seat = $seats[$i];
-            $seat["quantity"] = $_POST[$i];
-            $seat["price"] = getPrice($i, $_POST[$i], $_POST["day"], $_POST["time"]);
-            $sub += $seat["price"];
+            $screening["seats"][$i] = null;
+            $screening["seats"][$i]["quantity"] = $_POST[$i];
+            $screening["seats"][$i]["price"] = getPrice($i, $_POST[$i], $_POST["day"], $_POST["time"]);
+            $sub += $screening["seats"][$i]["price"];
             
          }
       }
@@ -98,8 +96,9 @@
                      </details>
                      <div class="price"><span>GrandTotal: $</span><span class="grandTotal"> <?php if(isset($_SESSION["grand-total"])){echo $_SESSION["grand-total"];}else{echo "0.00";}?></span></div>
                      
-                     <input class="button" type="button" value="EmptyCart" onclick="emptyCart()"/>
+                     <div id="submit"><input class="button" type="button" value="EmptyCart" onclick="emptyCart()"/>
                      <input class="button" type="submit" value="CheckOut"/>
+                     </div>
                 </fieldset>
             </form>
          </div>

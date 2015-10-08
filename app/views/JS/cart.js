@@ -17,6 +17,13 @@ function init() {
         }($mainElement, somthing));
     });
     $('.cusDes').next('input').keyup();
+    $.post("cartAjaxServer.php", {session:true}, function(data) {injectCartItems($('.cartItems'), data);});
+}
+
+function injectCartItems(el, data){
+    console.log(data);
+    var obj = JSON.parse(data);
+    console.log(obj);
 }
 
 function changeHint(data, $mainElement, name) {
@@ -74,6 +81,48 @@ function validateForm() {
         alert("Cart empty or invalid personal details.\nPlease edit your input before submittion.");
     }
     return valid;
+}
+
+function returnMovieName(code) {
+    if (code=="AC") {
+        return "Mission Impossible: Rogue Nation";
+    }
+    if (code=="CH") {
+        return "Inside Out";
+    }
+    if (code=="AF") {
+        return "Girlhood";
+    }
+    if (code=="RC") {
+        return "Train Wreck";
+    }
+}
+
+function returnSeatName(code){
+    if (code=="SA") {
+        return "Adult";
+    }
+    if (code=="SP") {
+        return "Concession";
+    }
+    if (code=="SC") {
+        return "Child";
+    }
+    if (code=="FA") {
+        return "First Class Adult";
+    }
+    if (code=="FC") {
+        return "First Class Child";
+    }
+    if (code=="B1") {
+        return "Beanbag - 1 Person";
+    }
+    if (code=="B2") {
+        return "Beanbag - 2 People";
+    }
+    if (code=="B3") {
+        return "Beanbag - 3 children";
+    }
 }
 
 $(document).ready(function() {

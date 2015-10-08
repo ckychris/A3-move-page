@@ -39,6 +39,10 @@ fieldset details select, fieldset details input, fieldset details summary, .pric
 	width:100%;
 }
 
+#buy input.button{
+    width:40%;
+}
+
 .valid{
     border-radius: 5px;
     padding:3px;
@@ -46,6 +50,11 @@ fieldset details select, fieldset details input, fieldset details summary, .pric
 }
 .cusDes{
      margin:5px;
+}
+
+#submit{
+    display:flex;
+    justify-content: space-around;
 }
 @media only screen and (min-width: 400px) {
 	#content-warpper ,#buy{

@@ -59,5 +59,8 @@
             echo "0.00";
         }
     }
+    if(isset($_POST["session"])){
+        echo json_encode($_SESSION);
+    }
     
 ?>
