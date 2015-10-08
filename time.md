@@ -14,3 +14,6 @@ Chris
 - 4 hours remake booking Page.
 - 8 hours ticket page design.
 - 4 hours login/ticket page coding.
+- 1 hour meetings.
+- 16 hours cartPage, validation server, css remake.
+Total - 51 hours, hell that was long@chris 20 years old, if I need to do it again, I will aim at 30 hours.
