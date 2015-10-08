@@ -17,15 +17,39 @@ function init() {
         }($mainElement, somthing));
     });
     $('.cusDes').next('input').keyup();
-    $.post("cartAjaxServer.php", {session:true}, function(data) {injectCartItems($('.cartItems'), data);});
+    $.post("cartAjaxServer.php", {"session":true}, function(data) {injectCartItems($('.cartItems'), data);});
 }
 
 function injectCartItems(el, data){
     console.log(data);
     var obj = JSON.parse(data);
-    console.log(obj);
+    // append cart items
+    for(var i in obj["cart"]["screenings"]){
+        var screening = obj["cart"]["screenings"][i];
+        var movieName = returnMovieName(screening["movie"]);
+        var day = screening["day"];
+        var time = screening["time"];
+        el.append('<div class="cartItem"></div>');
+            $( ".cartItem:last" ).append('<div class="movie">'+movieName+'</div>');
+            $( ".cartItem:last" ).append('<div class="dayTime">Showing at '+day+', '+time+'</div>');
+            $( ".cartItem:last" ).append('<table class="priceTable"></table>');
+                $( ".priceTable:last" ).append('<tr><th>Ticket Type</th><th>Cost</th><th>Qty</th><th>Subtotal</th></tr>');
+        for(var k in screening["seats"]){
+            var seatName = returnSeatName(k);
+            for(var u=0;u<screening["seats"][k]["quantity"];u++){
+                var qty = screening["seats"][k]["quantity"];
+                var price = screening["seats"][k]["price"];
+                $( ".priceTable:last" ).append('<tr><td>'+seatName+'</td><td>$'+price/qty+'</td><td>'+qty+'</td><td>$'+price+'</td></tr>');   
+            }
+        }
+            $( ".priceTable:last" ).append('<tr><td class="textRight" colspan="3">Sub total:</td><td>$'+screening['sub-total']+'</td></tr>');
+        $( ".cartItem:last" ).append('<div id="submit"><input class="button" type="button" value="Delete from Cart" onclick="deleteCart('+i+')"/></div>');
+    }
 }
 
+function deleteCart(index){
+    $.post("cartAjaxServer.php", {"delOne":index}, function(data) {window.location.href = 'cart.php';});
+}
 function changeHint(data, $mainElement, name) {
 
     if (data != false) {
@@ -64,7 +88,6 @@ function emptyCart(){
         window.location.href = 'cart.php';
     });
 }
-
 
 function validateForm() {
     // check

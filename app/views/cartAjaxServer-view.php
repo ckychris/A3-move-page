@@ -62,5 +62,19 @@
     if(isset($_POST["session"])){
         echo json_encode($_SESSION);
     }
+    if(isset($_POST["delOne"])){
+        unset($_SESSION["cart"]["screenings"][$_POST["delOne"]]);
+        $_SESSION["cart"]["screenings"] = array_values($_SESSION["cart"]["screenings"]);
+        
+        if(count($_SESSION["cart"]["screenings"])>0){
+            $grand = 0;
+            foreach($_SESSION["cart"]["screenings"] as $i){
+                $grand += $i["sub-total"];
+            }
+            $_SESSION["total"] = $grand;
+        }else{
+            $_SESSION["total"] = 0.00;
+        }
+    }
     
 ?>

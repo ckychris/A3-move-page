@@ -79,9 +79,7 @@
             <form id="buy" action='databaseIn.php' onsubmit="return validateForm();" method="post">
                 <fieldset>
                     <legend class="book">Cart</legend>
-                     <div class="cartItems">
-                        
-                     </div>
+                     <div class="cartItems"></div>
                      <div class="price"><span>Total: $</span><span class="total"> <?php if(isset($_SESSION["total"])){echo $_SESSION["total"];}else{echo "0.00";}?></span></div>
                      <details open>
                         <summary>Personal details</summary>

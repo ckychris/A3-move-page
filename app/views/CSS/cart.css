@@ -23,7 +23,7 @@ legend {
 	font-size:150%;
 } 
 
-fieldset details select, fieldset details input, fieldset details summary, .price, .button{
+fieldset details select, fieldset details input, fieldset details summary, .price, .button, .movie, .dayTime{
 	padding:4px 0px 4px 0px;
 	margin: 5px 0px 10px 0px;
 }
@@ -56,6 +56,36 @@ fieldset details select, fieldset details input, fieldset details summary, .pric
     display:flex;
     justify-content: space-around;
 }
+/* CartItem style */
+.cartItems, .cartItem, .moive, .dayTime, .priceTable{
+    width:100%;
+}
+.movie, .dayTime{
+    font-size: 150%;
+}
+.textRight{
+    text-align: right;
+}
+.priceTable, .priceTable th, .priceTable td{
+    border: solid 1px;
+    border-collapse: collapse;
+    padding: 3px;
+}
+.priceTable th{
+    text-align: left;
+    background-color: #ccc;
+}
+
+.priceTable tr:nth-child(odd){
+    background-color: #ccc;
+}
+
+
+
+
+
+
+
 @media only screen and (min-width: 400px) {
 	#content-warpper ,#buy{
 		justify-content:center;
