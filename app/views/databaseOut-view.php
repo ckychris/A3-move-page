@@ -1,9 +1,28 @@
 <?php
 
-    // if email + token matched in database ID entry
-    // output a JSON String e.g. the following
-    // else output error msg like "0"
-    // Testing output data
-    if($_POST["email"]&&$_POST["token"])
-        echo '{ "name": "Jane Smith", "email": "jane@smith.com", "phone": "04 0012 3456", "cart": { "screenings": [ { "movie": "CH", "day": "Monday", "time": "1pm", "seats": { "SA": { "quantity": 2, "price": 12.00 }, "B3": { "quantity": 1, "price": 20.00 } }, "sub-total": 44.00 }, { "movie": "AC", "day": "Saturday", "time": "9pm", "seats": { "SP": { "quantity": 3, "price": 15.00}, "B2": { "quantity": 1, "price": 30.00} }, "sub-total": 75.00 } ] }, "total": 119.00,"voucher": "12345-67890-ZI",  "grand-total": 95.20 }';
-?>
+//require_once 'example';
+
+$email = $_POST["email"];
+$token = $_POST["token"];
+
+echo '{ "name": "sfasdas", "email": "dsadasdas", "phone": "dasdasdasdsa", "voucher": "dsadasdsad", "cart": { "screenings": [ { "movie": "CH", "day": "Wednesday", "time": "6pm", "seats": { "SA": { "quantity": "3", "price": 36 }, "SP": { "quantity": "6", "price": 60 }, "FA": { "quantity": "1", "price": 25 } }, "sub-total": 121 }, { "movie": "AF", "day": "Tuesday", "time": "6pm", "seats": { "SA": { "quantity": "1", "price": 12 }, "SC": { "quantity": "1", "price": 8 } }, "sub-total": 20 } ] }, "total": 141, "grand-total": 141 }';
+
+
+
+/*
+$sql = "select EmailAddress, Token from MovieBookingSeesion";
+foreach ($sql as $var => $val) {
+    
+    
+    
+}
+if ($name != $_POST[email] || $token = $_POST[token]) {
+    echo("Please enter right email address and token number");
+    else 
+        return 0;
+}
+*/
+// echo .stringitfier(jsonObject)
+   
+
+
