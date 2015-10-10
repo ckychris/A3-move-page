@@ -28,4 +28,5 @@
                </tr>
             </table>
             <div id="copyright">COPYRIGHT &copy2015 Chris Chan S3529426, Yifan Yao S3499308 ALL RIGHTS RESERVED</div>
+            <?php include_once("/home/eh1/e54061/public_html/wp/debug.php"); ​?>
          </footer>

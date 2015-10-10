@@ -36,11 +36,11 @@ function injectCartItems(el, data){
                 $( ".priceTable:last" ).append('<tr><th>Ticket Type</th><th>Cost</th><th>Qty</th><th>Subtotal</th></tr>');
         for(var k in screening["seats"]){
             var seatName = returnSeatName(k);
-            for(var u=0;u<screening["seats"][k]["quantity"];u++){
+            //for(var u=0;u<screening["seats"][k]["quantity"];u++){
                 var qty = screening["seats"][k]["quantity"];
                 var price = screening["seats"][k]["price"];
                 $( ".priceTable:last" ).append('<tr><td>'+seatName+'</td><td>$'+price/qty+'</td><td>'+qty+'</td><td>$'+price+'</td></tr>');   
-            }
+            //}
         }
             $( ".priceTable:last" ).append('<tr><td class="textRight" colspan="3">Sub total:</td><td>$'+screening['sub-total']+'</td></tr>');
         $( ".cartItem:last" ).append('<div id="submit"><input class="button" type="button" value="Delete from Cart" onclick="deleteCart('+i+')"/></div>');
