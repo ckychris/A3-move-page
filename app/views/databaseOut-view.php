@@ -1,28 +1,84 @@
 <?php
 
-//require_once 'example';
-
+$JSON;
 $email = $_POST["email"];
 $token = $_POST["token"];
+$custID = getCustID($email,$token)[0]->CustID;
+// table 1
+$dbFile = 'app/views/DB/example.db';
+$connection = new PDO('sqlite:' . $dbFile);
+$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+$query = 'SELECT * FROM MovieBookingSession WHERE CustID=:CustID';
+$sth = $connection->prepare($query);
+$sth->bindParam(':CustID', $custID);
+$sth->execute();
+$data = $sth->fetchAll();
 
-echo '{ "name": "sfasdas", "email": "dsadasdas", "phone": "dasdasdasdsa", "voucher": "dsadasdsad", "cart": { "screenings": [ { "movie": "CH", "day": "Wednesday", "time": "6pm", "seats": { "SA": { "quantity": "3", "price": 36 }, "SP": { "quantity": "6", "price": 60 }, "FA": { "quantity": "1", "price": 25 } }, "sub-total": 121 }, { "movie": "AF", "day": "Tuesday", "time": "6pm", "seats": { "SA": { "quantity": "1", "price": 12 }, "SC": { "quantity": "1", "price": 8 } }, "sub-total": 20 } ] }, "total": 141, "grand-total": 141 }';
+
+$JSON["name"] = $data[0]->Name;
+$JSON["email"] = $data[0]->EmailAddress;
+$JSON["phone"] = $data[0]->Phone;
+$JSON["voucher"] = $data[0]->VoucherCode;
+$JSON["total"] = $data[0]->TotalPrice;
+$JSON["grand-total"] = $data[0]->GrandTotal;
 
 
+// table 2
+$JSON["cart"] = null;
+$JSON["cart"]["screenings"] = null;
+$query = 'SELECT * FROM Screening WHERE CustID=:CustID';
+$sth = $connection->prepare($query);
+$sth->bindParam(':CustID', $custID);
+$sth->execute();
+$data = $sth->fetchAll();
 
-/*
-$sql = "select EmailAddress, Token from MovieBookingSeesion";
-foreach ($sql as $var => $val) {
-    
-    
-    
+foreach($data as $u => $k){
+    $JSON["cart"]["screenings"][$u]["movie"] = $k->MovieCode;
+    $JSON["cart"]["screenings"][$u]["day"] = $k->Date;
+    $JSON["cart"]["screenings"][$u]["time"] = $k->Time;
+    $JSON["cart"]["screenings"][$u]["sub-total"] = $k->Subtotal;
+    $JSON["cart"]["screenings"][$u]["seats"] = null;
 }
-if ($name != $_POST[email] || $token = $_POST[token]) {
-    echo("Please enter right email address and token number");
-    else 
-        return 0;
+
+
+// table 3
+$query = 'SELECT * FROM TicketInfor WHERE CustID=:CustID';
+$sth = $connection->prepare($query);
+$sth->bindParam(':CustID', $custID);
+$sth->execute();
+$data = $sth->fetchAll();
+
+foreach($data as $u => $k){
+    $JSON["cart"]["screenings"][$k->ScreeningID]["seats"][$k->TicketTypeID] = null;
+    $JSON["cart"]["screenings"][$k->ScreeningID]["seats"][$k->TicketTypeID]["price"] = $k->Price;
+    $JSON["cart"]["screenings"][$k->ScreeningID]["seats"][$k->TicketTypeID]["quantity"] = $k->Qty;
 }
-*/
-// echo .stringitfier(jsonObject)
-   
+
+echo json_encode($JSON);
+// close db
+$connection = null;
+
+function getCustID($email,$token){
+  // database name assignment
+  $dbFile = 'app/views/DB/example.db';
+  // create a connection to the SQLite DB file using PDO
+  $connection = new PDO('sqlite:' . $dbFile);
+  // throw exceptions when there is an error
+  $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  // return db rows as objects
+  $connection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+  //get CustID
+  $query = 'SELECT CustID FROM MovieBookingSession WHERE EmailAddress=:EmailAddress AND Token=:Token';
+  $sth = $connection->prepare($query);
+  $sth->bindParam(':EmailAddress', $email);
+  $sth->bindParam(':Token', $token);
+  $sth->execute();
+  //return CustID 
+  $data = $sth->fetchAll();
+  return $data;
+}
+
+?>
 
 
