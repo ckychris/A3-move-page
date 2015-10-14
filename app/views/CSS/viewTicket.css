@@ -5,12 +5,10 @@
 }
 /* ticketHeader */
 .reminder{
-    display:flex;
     width:100%;
-    min-width: 400px;
-    max-width: 720px;
     color: #eee;
     background-color: #FF9933;
+    text-align: center;
 }
 .loginInfo{
     display:flex;
@@ -19,9 +17,11 @@
 .confirm{
     display:flex;
     flex-flow: row wrap;
+    width:100%;
     min-width: 400px;
     max-width: 720px;
     color: #eee;
+    justify-content: center;
  }
  .customerDetails{
     width:100%;
@@ -61,6 +61,7 @@
     min-width: 400px;
     min-height: 84px;
     margin-bottom: 15px;
+    border: 3px dashed #eee;
 }
 .ticketHead {
     background-color: #2F3290;
@@ -128,6 +129,11 @@
     font-size: 300%;
 }
 
+.email, .token{
+    background-color: green;
+    border-radius: 5px;
+}
+
 @media only screen and (min-width: 400px) {
     /* ticket */
     
@@ -155,14 +161,23 @@
         height: 20vw;
         width: auto;
     }
+    #content-warpper {
+        justify-content: center;
+    }
 }
 @media only screen and (min-width: 650px) {
     .confirm, .reminder{
         font-size: 150%;
     }
+    .ticket {
+    border-width: 4px;
+    }
 }
 @media only screen and (min-width: 1000px) {
     .confirm, .reminder{
         font-size: 200%;
+    }
+    .ticket {
+    border-width: 5px;
     }
 }

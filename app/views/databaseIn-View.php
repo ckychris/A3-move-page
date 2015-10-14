@@ -1,6 +1,5 @@
 <?php
 session_start();
-echo "My first PHP script!\n";
 // following connection script credits to https://docs.google.com/document/d/1aSuNBf5XxyXBDOvaF-mm9ZVguE8F4aYiyyOxsCAyBKw/edit
 ini_set('display_startup_errors',1);
 ini_set('display_errors',1);
