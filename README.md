@@ -1,6 +1,7 @@
 # A3-move-page
 Sample moive website
 Partten design credits to dushankw // https://github.com/dushankw/wp2015-bootstrap
+This project is achieved. Final version of a mock moive website@rmit 2015
 --------------------
 log - 24/9 
 
